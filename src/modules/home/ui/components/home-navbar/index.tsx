@@ -27,6 +27,7 @@ export const HomeNavbar = () => {
 
                 </div>
 
+                {/*SIGN UP-IN BUTTON */}
                 <div className="flex-shrink-0 items-center flex gap-4">
                     <AuthButton />
 
