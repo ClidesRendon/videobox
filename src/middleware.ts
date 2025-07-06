@@ -1,6 +1,10 @@
-import { clerkMiddleware } from '@clerk/nextjs/server';
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
-export default clerkMiddleware();
+const isProtectedRoute = createRouteMatcher([ "/protected(.*)"]) //This makes all the files on the protected folder only visible to logged in users
+
+export default clerkMiddleware( async (auth,req) => {
+  if (isProtectedRoute(req)) await auth.protect(); //Function to apply the protected feature
+});
 
 export const config = {
   matcher: [
