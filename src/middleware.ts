@@ -1,6 +1,6 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 
-const isProtectedRoute = createRouteMatcher([ "/protected(.*)"]) //This makes all the files on the protected folder only visible to logged in users
+const isProtectedRoute = createRouteMatcher([ "/studio(.*)"]) //This makes all the files on the protected folder only visible to logged in users
 
 export default clerkMiddleware( async (auth,req) => {
   if (isProtectedRoute(req)) await auth.protect(); //Function to apply the protected feature
